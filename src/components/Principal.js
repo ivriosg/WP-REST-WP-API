@@ -1,15 +1,18 @@
 import React, { Component } from "react";
 import axios from "axios";
-import PostItem from './Post.js';
+import PrincipalPost from "./PrincipalPost.js";
 
 export class Principal extends Component {
-  state = {
-    principales: []
-  };
+  constructor() {
+    super();
+    this.state = {
+      principales: []
+    };
+  }
 
   componentDidMount() {
     axios
-      .get("https://24-horas.mx/wp-json/wp/v2/posts/")
+      .get("https://24-horas.mx/wp-json/wp/v2/posts/?per_page=1")
       .then((res) =>
         this.setState({
           principales: res.data
@@ -19,15 +22,14 @@ export class Principal extends Component {
   }
 
   render() {
-    const { principales, isLoaded } = this.state;
+    const { principales } = this.state;
     return (
       <div>
-          {principales.map(principal =>
-          <PostItem key={principal.id} principal={principal}/>
-          )}
+        {principales.map((principal) => (
+          <PrincipalPost key={principal.id} principal={principal} />
+        ))}
       </div>
-  );
-
+    );
   }
 }
 
