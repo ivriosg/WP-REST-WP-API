@@ -6,7 +6,7 @@ export class Principal extends Component {
   constructor() {
     super();
     this.state = {
-      principales: []
+      principales: [],
     };
   }
 
@@ -15,7 +15,7 @@ export class Principal extends Component {
       .get("https://24-horas.mx/wp-json/wp/v2/posts/?per_page=1")
       .then((res) =>
         this.setState({
-          principales: res.data
+          principales: res.data,
         })
       )
       .catch((err) => console.log(err));
@@ -24,10 +24,12 @@ export class Principal extends Component {
   render() {
     const { principales } = this.state;
     return (
-      <div>
-        {principales.map((principal) => (
-          <PrincipalPost key={principal.id} principal={principal} />
-        ))}
+      <div className="row">
+        <div className="col-12 col-sm-8">
+          {principales.map((principal) => (
+            <PrincipalPost key={principal.id} principal={principal} />
+          ))}
+        </div>
       </div>
     );
   }

@@ -33,12 +33,13 @@ export class PrincipalPost extends Component {
     const { title, excerpt, date } = this.props.principal;
     const { author, imgUrl } = this.state;
     return (
-      <div>
-        <img className="post__image" src={imgUrl} alt={title.rendered} />
-        <h2 className="post__title">{title.rendered}</h2>
-        <div className="post__excerpt" dangerouslySetInnerHTML={{ __html: excerpt.rendered }}></div>
-        <span className="post__metadata">POR: {author} - {date}</span>
-        
+      <div className="post__principal full__border box__shadow">
+        <img className="post__image border__top img-fluid" src={imgUrl} alt={title.rendered} />
+        <div className="post__content">
+          <h2 className="post__title">{title.rendered}</h2>
+          <div className="post__excerpt" dangerouslySetInnerHTML={{ __html: excerpt.rendered }}></div>
+          <span className="post__metadata">POR: {author} - {date}</span>
+        </div>
       </div>
     );
   }
