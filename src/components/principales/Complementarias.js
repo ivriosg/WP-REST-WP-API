@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import PrincipalPost from "./PrincipalPost.js";
+import Complementaria from "./Complementaria.js";
 
-export class Principal extends Component {
+export class Complementarias extends Component {
   constructor() {
     super();
     this.state = {
@@ -12,7 +12,7 @@ export class Principal extends Component {
 
   componentDidMount() {
     axios
-      .get("https://24-horas.mx/wp-json/wp/v2/posts/?per_page=1")
+      .get("https://24-horas.mx/wp-json/wp/v2/posts/?per_page=4")
       .then((res) =>
         this.setState({
           principales: res.data,
@@ -26,11 +26,11 @@ export class Principal extends Component {
     return (
       <div className="">
           {principales.map((principal) => (
-            <PrincipalPost key={principal.id} principal={principal} />
+            <Complementaria key={principal.id} principal={principal} />
           ))}
       </div>
     );
   }
 }
 
-export default Principal;
+export default Complementarias;

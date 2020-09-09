@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import PrincipalPost from "./PrincipalPost.js";
+import SinglePost from "./SinglePost.js";
 
-export class Principal extends Component {
+export class Sera extends Component {
   constructor() {
     super();
     this.state = {
@@ -24,13 +24,14 @@ export class Principal extends Component {
   render() {
     const { principales } = this.state;
     return (
-      <div className="">
+      <div className="sera">
+        <h3 className="title__section">¿SERÁ?</h3>
           {principales.map((principal) => (
-            <PrincipalPost key={principal.id} principal={principal} />
+            <SinglePost key={principal.id} principal={principal} />
           ))}
       </div>
     );
   }
 }
 
-export default Principal;
+export default Sera;

@@ -15,3 +15,22 @@
 .post__metadata {
   text-align: center;
 }
+.border__bottom {
+  border-bottom: 1px solid #4D4D4D36;
+}
+.title__section {
+  border-bottom: 4px solid #c80b0f;
+  width: max-content;
+  padding-left: 7px;
+  padding-bottom: 2px;
+}
+.title__section:before {
+  content: "";
+  width: 17px;
+  height: 32px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #c80b0f;
+  border-radius: 4px;
+}
